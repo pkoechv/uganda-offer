@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.shutterstock.com/image-illustration/background-green-screen-video-editing-260nw-1563651100.jpg'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: green;
+            font-style: italic;
+            text-align: center;
+        }
+        .payment-options {
+            margin-top: 20px;
+        }
+        .option {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #f9f9f9;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .modal-content button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose the Amount You Can Pay for Registration Fees</h1>
+        <div class="payment-options">
+            <div class="option" onclick="openModal(44000, 1690000)">1,690,000/- Registration Fee (UGX 44,000)</div>
+            <div class="option" onclick="openModal(72000, 2100000)">2,100,000/- Registration Fee (UGX 72,000)</div>
+            <div class="option" onclick="openModal(99000, 2373030)">2,373,030/- Registration Fee (UGX 99,000)</div>
+            <div class="option" onclick="openModal(150000, 3678090)">3,678,090/- Registration Fee (UGX 150,000)</div>
+            <div class="option" onclick="openModal(188900, 4560000)">4,560,000/- Registration Fee (UGX 188,900)</div>
+            <div class="option" onclick="openModal(250000, 7890350)">7,890,350/- Registration Fee (UGX 250,000)</div>
+            <div class="option" onclick="openModal(300000, 8800090)">8,800,090/- Registration Fee (UGX 300,000)</div>
+            <div class="option" onclick="openModal(450000, 10540000)">10,540,000/- Registration Fee (UGX 450,000)</div>
+            <div class="option" onclick="openModal(600070, 12450800)">12,450,800/- Registration Fee (UGX 600,070)</div>
+            <div class="option" onclick="openModal(760900, 14500080)">14,500,080/- Registration Fee (UGX 760,900)</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <button id="payNowBtn">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var payNowBtn = document.getElementById("payNowBtn");
+
+        function openModal(paymentAmount, awardAmount) {
+            var message = `Congratulations! You need to pay ${paymentAmount} UGX for your award of ${awardAmount} UGX to be released.`;
+            document.getElementById("modal-message").innerHTML = message;
+            modal.style.display = "block";
+        }
+
+        payNowBtn.onclick = function() {
+            // Here you can redirect the user to another web page for payment
+            window.location.href = "https://a14-jc8q.vercel.app/";
+        }
+
+        // Close the modal window when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
